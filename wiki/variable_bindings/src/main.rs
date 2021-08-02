@@ -1,5 +1,4 @@
 fn main() {
-    
     {
         let an_integer = 1u32;
         let a_boolean = false;
@@ -64,7 +63,6 @@ fn main() {
         another_binding = 10i32;
 
         println!("another_binding: {}", another_binding);
-
     }
 
     println!("--------------------------------");
@@ -79,6 +77,4 @@ fn main() {
         _mutable_integer = 10i32;
         println!("mutable_integer: {}", _mutable_integer);
     }
-
-
 }

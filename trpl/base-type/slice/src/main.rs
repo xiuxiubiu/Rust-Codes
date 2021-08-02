@@ -1,8 +1,7 @@
 fn main() {
-    
     let mut v: Vec<f64> = vec![0.0, 0.707, 1.0, 0.707];
     let a: [f64; 4] = [0.0, -0.707, -1.0, -0.707];
-    
+
     let sv: &[f64] = &v;
     assert_eq!(sv.len(), 4);
     assert_eq!(sv[0], 0.0);
@@ -19,10 +18,6 @@ fn main() {
     assert_eq!(v, vec![0.707, 1.0, 0.707, 0.0]);
 
     print(&v[..]);
-
-    
-
-
 }
 
 fn print(n: &[f64]) {

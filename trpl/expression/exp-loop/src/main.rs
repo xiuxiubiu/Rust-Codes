@@ -1,5 +1,4 @@
 fn main() {
-    
     {
         let mut x = 0;
         loop {
@@ -22,8 +21,7 @@ fn main() {
         // }
         // assert_eq!(r, std::ops::Range { start: 0, end: 20 });
 
-        let mut strings: Vec<String> = 
-            vec!["a".to_string(), "b".to_string()];
+        let mut strings: Vec<String> = vec!["a".to_string(), "b".to_string()];
         for rs in &strings {
             println!("String {:?} is at address {:p}.", *rs, rs);
         }
@@ -35,8 +33,7 @@ fn main() {
         }
 
         strings.push("c".to_string());
-        'ex:
-        for rs in &strings {
+        'ex: for rs in &strings {
             if rs == "b\n" {
                 break 'ex;
             }
@@ -73,7 +70,5 @@ fn main() {
                 optional = Some(i + 1);
             }
         }
-
-        
     }
 }

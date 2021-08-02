@@ -1,5 +1,4 @@
 fn main() {
-    
     {
         let v = vec![1, 2, 3, 4];
         let r = &v;
@@ -10,9 +9,8 @@ fn main() {
         // assert_eq!(v[0], 1);
         // assert_eq!(r[0], 1);
     }
-    
 
-    {   
+    {
         fn extend(vec: &mut Vec<f64>, slice: &[f64]) {
             for elt in slice {
                 vec.push(*elt);
@@ -22,7 +20,7 @@ fn main() {
         let v: &mut Vec<f64> = &mut vec![1.0];
         extend(v, &[2.0]);
         assert_eq!(v, &vec![1.0, 2.0]);
-        
+
         let mut y: Vec<f64> = vec![1.0];
         extend(&mut y, &[3.0]);
         assert_eq!(y, vec![1.0, 3.0]);
@@ -55,13 +53,13 @@ fn main() {
 
     {
         struct File {
-            _descriptor: i32
+            _descriptor: i32,
         }
 
         fn new_file(d: i32) -> File {
             File { _descriptor: d }
         }
-        
+
         fn _clone_from(this: &mut File, rhs: &File) {
             this._descriptor = rhs._descriptor;
         }
@@ -77,9 +75,6 @@ fn main() {
         x += 1;
         // assert_eq!(*p, 42);
         assert_eq!(x, 43);
-        // assert_eq!(*p, 42);  
+        // assert_eq!(*p, 42);
     }
-
-
-
 }

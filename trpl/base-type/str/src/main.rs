@@ -1,14 +1,17 @@
 fn main() {
-
     let speech = "\"Ouch!\" said the well.\n";
     println!("{}", speech);
 
-    println!("In the room the women come and go,
-        Singing of Mount Abora");
-    
-    println!("It was a bright, cold day in April, and \
+    println!(
+        "In the room the women come and go,
+        Singing of Mount Abora"
+    );
+
+    println!(
+        "It was a bright, cold day in April, and \
         there were four of us—\
-        more or less.");
+        more or less."
+    );
 
     let default_win_install_path = r##"\\测试斜杠""##;
     println!("{}", default_win_install_path);
@@ -39,10 +42,9 @@ fn main() {
 
     let bits_arr = ["veni", "vidi", "vici"];
     assert_eq!(bits_arr.concat(), "venividivici");
-    
+
     assert!("ONE".to_lowercase() == "one");
     assert!("peanut".contains("nut"));
     assert_eq!("abcde".replace("cd", "dc"), "abdce");
     assert_eq!("  clean\n".trim(), "clean");
-
 }

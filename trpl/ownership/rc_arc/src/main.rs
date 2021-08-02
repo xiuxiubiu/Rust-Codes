@@ -1,7 +1,6 @@
 use std::rc::Rc;
 
 fn main() {
-    
     let s: Rc<String> = Rc::new("shirataki".to_string());
     let t: Rc<String> = s.clone();
     let u = t.clone();
@@ -11,7 +10,4 @@ fn main() {
     println!("{}", t);
 
     // s.push_str("ddd");
-
-    
-
 }

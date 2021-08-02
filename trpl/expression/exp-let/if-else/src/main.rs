@@ -5,9 +5,9 @@ fn main() {
             1 => "1",
             2 => "2",
             3 => "3",
-            _ => "0"
+            _ => "0",
         };
-        
+
         assert_eq!(one, "1");
 
         code = 2;
@@ -34,17 +34,15 @@ fn main() {
         enum Foo {
             Bar,
             _Baz,
-            _Qux(u32)
+            _Qux(u32),
         }
 
         let a = Foo::Bar;
-        
+
         // 变量匹配 Foo::Bar
         if let Foo::Bar = a {
-
-        // ^-- 这就是编译时发现的错误。使用 `if let` 来替换它。
+            // ^-- 这就是编译时发现的错误。使用 `if let` 来替换它。
             println!("a is foobar");
         }
-
     }
 }

@@ -1,5 +1,4 @@
 fn main() {
-    
     let f = i64::MAX;
 
     println!("{}", f);
@@ -9,7 +8,4 @@ fn main() {
     println!("{}", std::f64::consts::PI);
 
     println!("{}", f64::sqrt(2_f64));
-
-
-
 }

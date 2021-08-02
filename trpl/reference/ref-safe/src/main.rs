@@ -2,26 +2,23 @@ fn main() {
     {
         let r;
         // {
-            let x = 1;
-            r = &x;
-            // assert!(*r == 1);
+        let x = 1;
+        r = &x;
+        // assert!(*r == 1);
         // }
         assert_eq!(*r, 1);
-
     }
 
     let v = vec![1, 2, 3];
     let r = v[1];
     assert_eq!(r, 2);
-    let x= v[1];
+    let x = v[1];
     assert_eq!(x, 2);
-
-    
 
     static mut STASH: &i32 = &128;
     fn f(p: &'static i32) {
         unsafe {
-            STASH = p; 
+            STASH = p;
         }
     }
 
@@ -37,10 +34,10 @@ fn main() {
     }
 
     fn g<'a>(_p: &'a i32) {}
-    let x= 10;
+    let x = 10;
     g(&x);
     // f(&x);
-   
+
     let s;
     {
         let parabola = [100, 90, 3];
@@ -48,29 +45,25 @@ fn main() {
         assert_eq!(*s, 3);
     }
 
-
     struct ST<'a> {
-        r: &'a i32
+        r: &'a i32,
     }
     let st;
     {
         let x = 10;
-        st = ST{r: &x};
+        st = ST { r: &x };
         assert_eq!(*st.r, 10);
     }
 
     struct Record<'a> {
-        r: &'a [i8]
+        r: &'a [i8],
     }
     fn parse_record<'a>(input: &'a [i8]) -> Record<'a> {
-        Record{
-            r: input
-        }
+        Record { r: input }
     }
     let rr = parse_record(&[1, 2, 3]);
     assert_eq!(rr.r, &[1, 2, 3]);
 
-    
     fn modify(v: &mut Vec<i8>) -> &Vec<i8> {
         v[0] = 2;
         v
@@ -78,7 +71,6 @@ fn main() {
     let mut v = vec![1, 2, 3];
     modify(&mut v);
     assert_eq!(v, vec![2, 2, 3]);
-
 
     struct SS<'a> {
         xs: &'a i32,
@@ -99,7 +91,7 @@ fn main() {
     // assert_eq!(*rs, 20);
 
     struct StringTable {
-        elements: Vec<String>
+        elements: Vec<String>,
     }
     impl StringTable {
         fn find_by_prefix(&self, prefix: &str) -> Option<&String> {
@@ -111,10 +103,10 @@ fn main() {
             None
         }
     }
-    let st = StringTable { elements: vec!["abc".to_string(), "def".to_string()] };
+    let st = StringTable {
+        elements: vec!["abc".to_string(), "def".to_string()],
+    };
     println!("{:?}", st.find_by_prefix("ab"));
-
-
 }
 
 fn smallest<'a>(v: &'a [i32]) -> &'a i32 {

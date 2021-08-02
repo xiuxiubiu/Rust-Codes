@@ -1,5 +1,4 @@
 fn main() {
-    
     let x = 10;
     let r = &x;
     assert!(*r == 10);
@@ -10,17 +9,22 @@ fn main() {
     *m += 32;
     assert_eq!(*m, 64);
 
-    struct Anime { name: &'static str, _bechdel_pass: bool }
-    let aria = Anime{ name: "Aria: The Animation", _bechdel_pass: true };
+    struct Anime {
+        name: &'static str,
+        _bechdel_pass: bool,
+    }
+    let aria = Anime {
+        name: "Aria: The Animation",
+        _bechdel_pass: true,
+    };
     let anime_ref = &aria;
     assert_eq!(anime_ref.name, "Aria: The Animation");
     assert_eq!((*anime_ref).name, "Aria: The Animation");
-    
+
     let mut v = vec![1973, 1968];
     v.sort();
     // (&mut v).sort();
     assert_eq!(v, vec![1968, 1973]);
-
 
     let x1 = 10;
     let y1 = 20;
@@ -29,15 +33,16 @@ fn main() {
     assert!(*_r1 == 10 || *_r1 == 20);
     assert_eq!(*_r1, 20);
 
-
-    struct Point { x: i32, y: i32 }
+    struct Point {
+        x: i32,
+        y: i32,
+    }
     let point = Point { x: 1000, y: 729 };
     let p: &Point = &point;
     let pp: &&Point = &p;
     let ppp: &&&Point = &pp;
     assert_eq!(ppp.x, 1000);
     assert_eq!(ppp.y, 729);
-
 
     let x2 = 10;
     let y2 = 10;
@@ -52,13 +57,11 @@ fn main() {
     assert_eq!(rx2, ry2);
     assert!(std::ptr::eq(rx2, rx2_1));
 
-    
     let r = &factorial(6);
     assert_eq!(r + 1009, 1729);
     // println!("{}", r + 100);
-
 }
 
 fn factorial(n: usize) -> usize {
-    (1..n+1).fold(1, |a, b| a * b)
+    (1..n + 1).fold(1, |a, b| a * b)
 }

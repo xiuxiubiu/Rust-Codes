@@ -1,11 +1,12 @@
 fn main() {
-    
     #[derive(Copy, Clone)]
-    struct Label { number: u32 }
+    struct Label {
+        number: u32,
+    }
     fn print(l: Label) {
         println!("STAMP: {}", l.number);
     }
-    let l = Label {number: 0};
+    let l = Label { number: 0 };
     print(l);
     println!("My label number is: {}", l.number);
 

@@ -1,5 +1,4 @@
 fn main() {
-
     {
         fn x(x: i8) -> Result<i8, std::io::Error> {
             if x > 0 {
@@ -11,17 +10,12 @@ fn main() {
         let a = x(0);
         println!("{:?}", a);
     }
-    
+
     {
         // use std::io;
         // fn show_files() -> io::Result<()> {
         //     let mut v = vec![];
 
         // }
-
-
     }
-    
-
-
 }

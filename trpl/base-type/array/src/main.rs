@@ -1,5 +1,4 @@
 fn main() {
-
     let lazy_caterer: [u32; 6] = [1, 2, 4, 7, 11, 16];
     let taxonomy = ["Animalia", "Arthropoda", "Insecta"];
 
@@ -18,7 +17,7 @@ fn main() {
             }
         }
     }
-    
+
     println!("{}", sieve[4]);
 
     let b = [0u8; 1024];

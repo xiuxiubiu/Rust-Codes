@@ -13,6 +13,6 @@ fn main() {
     println!("{}", t.0);
 
     let tuple = ((1, "abc"), 2, '*');
-    println!("{}", tuple.0.0);
-    println!("{}", tuple.0.1);
+    println!("{}", tuple.0 .0);
+    println!("{}", tuple.0 .1);
 }

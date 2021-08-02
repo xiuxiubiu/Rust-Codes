@@ -2,8 +2,14 @@ fn main() {
     let s = vec!["udon".to_string(), "ramen".to_string(), "soba".to_string()];
     let t = s.clone();
     let u = t;
-    assert_eq!(s, vec!["udon".to_string(), "ramen".to_string(), "soba".to_string()]);
-    assert_eq!(u, vec!["udon".to_string(), "ramen".to_string(), "soba".to_string()]);
+    assert_eq!(
+        s,
+        vec!["udon".to_string(), "ramen".to_string(), "soba".to_string()]
+    );
+    assert_eq!(
+        u,
+        vec!["udon".to_string(), "ramen".to_string(), "soba".to_string()]
+    );
     // assert_eq!(t, vec!["udon".to_string(), "ramen".to_string(), "soba".to_string()]);
 
     let mut s1 = "Govinda".to_string();
@@ -33,7 +39,7 @@ fn main() {
     //     g(x2);
     // }
     // h(x2);
-    
+
     // fn f3(_v: Vec<u8>) {}
     // let x3 = vec![10, 20, 30, 40];
     // for _i in 0..3 {
@@ -87,21 +93,34 @@ fn main() {
     // }
     assert_eq!(v8, vec!["101", "104", "substitute"]);
 
-    let v9 = vec!["liberté".to_string(), "égalité".to_string(), "fraternité".to_string()];
+    let v9 = vec![
+        "liberté".to_string(),
+        "égalité".to_string(),
+        "fraternité".to_string(),
+    ];
     // for mut s in v9 {
     //     s.push('!');
     //     println!("{}", s);
     // }
-    assert_eq!(v9, vec!["liberté".to_string(), "égalité".to_string(), "fraternité".to_string()]);
+    assert_eq!(
+        v9,
+        vec![
+            "liberté".to_string(),
+            "égalité".to_string(),
+            "fraternité".to_string()
+        ]
+    );
 
     struct Person {
         name: Option<String>,
-        _birth: i32
+        _birth: i32,
     }
     let mut composers = Vec::new();
-    composers.push(Person{name: Some("name".to_string()), _birth: 32});
+    composers.push(Person {
+        name: Some("name".to_string()),
+        _birth: 32,
+    });
     // let first_name = std::mem::replace(&mut composers[0].name, None);
     let first_name = composers[0].name.take();
     assert_eq!(first_name, Some("name".to_string()));
-
 }

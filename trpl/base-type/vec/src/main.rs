@@ -1,5 +1,4 @@
 fn main() {
-    
     let mut v = vec![2, 3, 5, 7];
     assert_eq!(v.iter().fold(1, |a, b| a * b), 210);
 
@@ -9,7 +8,7 @@ fn main() {
 
     let buffer = new_pixel_buffer(10, 2);
     assert_eq!(buffer.len(), 20);
-    
+
     let mut v1 = Vec::new();
     v1.push("step");
     v1.push("on");
@@ -50,7 +49,15 @@ fn main() {
 
     let languages: Vec<String> = std::env::args().skip(1).collect();
     for l in languages {
-        println!("{}: {}", l, if l.len() % 2 == 0 {"functional"} else {"imperative"});
+        println!(
+            "{}: {}",
+            l,
+            if l.len() % 2 == 0 {
+                "functional"
+            } else {
+                "imperative"
+            }
+        );
     }
 }
 

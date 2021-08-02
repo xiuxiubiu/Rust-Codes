@@ -1,5 +1,4 @@
 fn main() {
-    
     let t = (12, "eggs");
 
     let b = Box::new(t);

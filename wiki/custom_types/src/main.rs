@@ -2,13 +2,12 @@
 #![allow(dead_code)]
 
 fn main() {
-    
     // struct
     {
         #[derive(Debug)]
         struct Person<'a> {
             name: &'a str,
-            age: u8
+            age: u8,
         }
 
         // 单元结构体
@@ -34,18 +33,18 @@ fn main() {
 
         let name = "Peter";
         let age = 27;
-        let peter = Person {name, age};
+        let peter = Person { name, age };
         println!("{:?}", peter);
 
-        let point: Point = Point{x: 0.3, y: 0.7};
+        let point: Point = Point { x: 0.3, y: 0.7 };
         println!("point coordinates: ({}, {})", point.x, point.y);
 
-        let Point {x: my_x, y: my_y} = point;
+        let Point { x: my_x, y: my_y } = point;
         println!("let x: {}, y: {}", my_x, my_y);
 
         let rectangle = Rectangle {
-            p1: Point {x: my_x, y: my_y},
-            p2: point,  
+            p1: Point { x: my_x, y: my_y },
+            p2: point,
         };
         println!("rectangle is {:?}", rectangle);
 
@@ -66,7 +65,10 @@ fn main() {
         fn rect_area(s: &Square) -> f32 {
             s.width * s.height
         }
-        let s = Square{width:10f32, height: 100f32};
+        let s = Square {
+            width: 10f32,
+            height: 100f32,
+        };
         println!("square: {:?}, area: {}", s, rect_area(&s));
 
         #[derive(Debug)]
@@ -76,9 +78,12 @@ fn main() {
             p: Point,
         }
         fn square(p: Point, n: f32) -> NewRectangle {
-            NewRectangle {w: n, h: n, p: p}
+            NewRectangle { w: n, h: n, p: p }
         }
-        println!("new rectangle: {:?}", square(Point{x: 1f32, y: 1f32}, 10f32));
+        println!(
+            "new rectangle: {:?}",
+            square(Point { x: 1f32, y: 1f32 }, 10f32)
+        );
     }
 
     println!("----------------------------------------------------------------");
@@ -90,7 +95,7 @@ fn main() {
             PageUnload,
             KeyPress(char),
             Paste(String),
-            Click { x: i64, y: i64 }
+            Click { x: i64, y: i64 },
         }
 
         fn inspect(event: WebEvent) {
@@ -99,13 +104,13 @@ fn main() {
                 WebEvent::PageUnload => println!("page unloaded"),
                 WebEvent::KeyPress(c) => println!("pressed '{}'", c),
                 WebEvent::Paste(s) => println!("pasted \"{}\"", s),
-                WebEvent::Click{x, y} => println!("clicked at x={}, y={}.", x, y),
+                WebEvent::Click { x, y } => println!("clicked at x={}, y={}.", x, y),
             }
         }
 
         let pressed = WebEvent::KeyPress('x');
         let pasted = WebEvent::Paste("my text".to_owned());
-        let click = WebEvent::Click {x: 20, y: 30};
+        let click = WebEvent::Click { x: 20, y: 30 };
         let load = WebEvent::PageLoad;
         let unload = WebEvent::PageUnload;
 
@@ -118,7 +123,8 @@ fn main() {
         #[allow(dead_code)]
         #[derive(Debug)]
         enum VeryVerboseEnumOfThingsToDoWithNumbers {
-            Add, Sub
+            Add,
+            Sub,
         }
         impl VeryVerboseEnumOfThingsToDoWithNumbers {
             fn run(&self, x: i32, y: i32) -> i32 {
@@ -132,7 +138,10 @@ fn main() {
         type Operations = VeryVerboseEnumOfThingsToDoWithNumbers;
         let op_add = Operations::Add;
         println!("Operations Add: {:?}", op_add);
-        println!("Operations Subtract: {:?}", (Operations::Sub).run(100i32, 30i32));
+        println!(
+            "Operations Subtract: {:?}",
+            (Operations::Sub).run(100i32, 30i32)
+        );
     }
 
     println!("--------------------------------------------------------");
@@ -140,14 +149,16 @@ fn main() {
     // enum -> use
     {
         enum Status {
-            Rich, Poor
+            Rich,
+            Poor,
         }
 
         enum Work {
-            Civilian, Soldier
+            Civilian,
+            Soldier,
         }
 
-        use Status:: {Poor, Rich};
+        use Status::{Poor, Rich};
         use Work::*;
 
         let status = Poor;
@@ -164,11 +175,13 @@ fn main() {
     }
 
     println!("-------------------------------------------");
-    
+
     // enum -> c style
     {
         enum Number {
-            A, B, C
+            A,
+            B,
+            C,
         }
 
         enum Color {
@@ -196,7 +209,6 @@ fn main() {
         }
 
         impl List {
-
             // 创建空的List
             fn new() -> List {
                 Nil
@@ -211,7 +223,7 @@ fn main() {
             fn len(&self) -> u32 {
                 match self {
                     Cons(_, tail) => 1 + tail.len(),
-                    Nil => 0
+                    Nil => 0,
                 }
             }
 
@@ -220,13 +232,12 @@ fn main() {
                 match self {
                     Cons(head, tail) => {
                         format!("{} {}", head, tail.stringify())
-                    },
+                    }
                     Nil => {
                         format!("Nil")
                     }
                 }
             }
-
         }
 
         let mut list = List::new();
@@ -239,7 +250,6 @@ fn main() {
 
     println!("---------------------------\n");
 
-    
     // const
     {
         static mut LANGUAGE: &'static str = "Rust";
@@ -254,13 +264,11 @@ fn main() {
             println!("This is {}", LANGUAGE);
         }
         println!("the threshold is {}", THRESHOLD);
-        println!("{} is {}", n, if is_big(n) {"big"} else {"small"});
+        println!("{} is {}", n, if is_big(n) { "big" } else { "small" });
 
         unsafe {
             LANGUAGE = "C";
             println!("new language is {}", LANGUAGE);
         }
     }
-
-
 }
